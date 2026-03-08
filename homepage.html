@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>김진철 교수 연구실 | Advanced Drug Delivery & Biomaterials Lab</title>
+  <meta name="description" content="강원대학교 김진철 교수 유효성분전달연구실 홈페이지. Drug Delivery Systems, Biomaterials, Colloid & Interface Science, Polymer Science, Functional Formulations, AI-enabled DDS." />
+  <style>
+    :root {
+      --bg: #08101e;
+      --bg2: #101c31;
+      --panel: rgba(255,255,255,0.08);
+      --panel2: rgba(255,255,255,0.05);
+      --line: rgba(255,255,255,0.13);
+      --text: #eef4ff;
+      --muted: #c9d6e8;
+      --accent: #5aa8ff;
+      --accent2: #5ee0bd;
+      --gold: #ffd166;
+      --nav: rgba(8,16,30,0.72);
+      --shadow: 0 24px 64px rgba(0,0,0,.32);
+      --radius: 24px;
+      --maxw: 1240px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter","Noto Sans KR","Segoe UI",Arial,sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(90,168,255,.16), transparent 34%),
+        radial-gradient(circle at 100% 0%, rgba(94,224,189,.11), transparent 26%),
+        linear-gradient(135deg, var(--bg) 0%, var(--bg2) 48%, #101827 100%);
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(calc(100% - 34px), var(--maxw)); margin: 0 auto; }
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(16px);
+      background: var(--nav);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner {
+      display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 0;
+    }
+    .brand { display:flex; align-items:center; gap:12px; }
+    .logo {
+      width:46px; height:46px; border-radius:15px;
+      display:grid; place-items:center; font-weight:800;
+      background: linear-gradient(135deg, var(--accent), #2563eb);
+      box-shadow: var(--shadow);
+    }
+    .brand h1 { margin:0; font-size:1rem; }
+    .brand small { color: var(--muted); }
+    .nav-links { display:flex; gap:18px; flex-wrap:wrap; color: var(--muted); font-size:.95rem; }
+    .nav-links a:hover { color:#fff; }
+
+    .hero { padding: 74px 0 44px; }
+    .hero-grid { display:grid; grid-template-columns: 1.18fr .82fr; gap:24px; }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-main {
+      padding: 42px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-main::after {
+      content:"";
+      position:absolute; right:-60px; top:-60px; width:220px; height:220px; border-radius:50%;
+      background: radial-gradient(circle, rgba(90,168,255,.23), transparent 70%);
+    }
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 14px; border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.11);
+      color:#dcedff; font-size:.9rem; margin-bottom:18px;
+    }
+    h1,h2,h3,h4 { line-height:1.2; margin:0 0 14px; }
+    h1 { font-size: clamp(2.1rem, 5vw, 3.75rem); }
+    h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+    h3 { font-size: 1.12rem; }
+    p { margin: 0 0 12px; }
+    .lead {
+      color: var(--muted);
+      font-size: 1.06rem;
+      max-width: 64ch;
+      margin-bottom: 24px;
+    }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin: 10px 0 26px; }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 12px 18px; border-radius: 14px; font-weight: 700;
+      transition: transform .18s ease, opacity .18s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .primary { background: linear-gradient(135deg, var(--accent), #2563eb); color:#fff; }
+    .secondary { background: rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.13); }
+    .stat-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:12px; }
+    .stat {
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .stat strong { display:block; font-size:1.45rem; margin-bottom:6px; }
+
+    .hero-side {
+      display:grid; gap:16px;
+    }
+    .photo-card { padding: 18px; }
+    .portrait-wrap {
+      border-radius: 22px;
+      overflow:hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .portrait {
+      width:100%;
+      aspect-ratio: 4 / 4.2;
+      object-fit: cover;
+    }
+    .photo-meta { padding: 18px 4px 2px; }
+    .mini {
+      padding: 20px;
+      background: var(--panel2);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: 20px;
+    }
+    .chips { display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px; }
+    .chip {
+      padding:8px 12px; border-radius:999px; font-size:.92rem;
+      background: rgba(90,168,255,.14);
+      border:1px solid rgba(90,168,255,.18);
+      color:#deeeff;
+    }
+
+    section { padding: 28px 0; }
+    .section-head { display:flex; justify-content:space-between; gap:16px; align-items:end; margin-bottom: 20px; }
+    .section-head p { color: var(--muted); max-width: 70ch; margin:0; }
+    .grid-2 { display:grid; grid-template-columns: repeat(2,1fr); gap:18px; }
+    .grid-3 { display:grid; grid-template-columns: repeat(3,1fr); gap:18px; }
+    .panel { padding: 26px; }
+    .soft {
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+    .timeline { display:grid; gap:14px; }
+    .timeline-item {
+      display:grid; grid-template-columns: 112px 1fr; gap:16px;
+      padding:14px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .timeline-item:last-child { border-bottom:none; padding-bottom:0; }
+    .year { color:#a9d1ff; font-weight:700; }
+    .muted { color: var(--muted); }
+    .list { margin:0; padding-left: 18px; color: var(--muted); }
+    .list li { margin: 7px 0; }
+
+    .pub-card {
+      padding: 22px;
+      display:flex; flex-direction:column; gap:12px;
+    }
+    .pub-top { display:flex; justify-content:space-between; gap:10px; align-items:flex-start; }
+    .badge {
+      flex: 0 0 auto;
+      padding: 7px 11px;
+      border-radius:999px;
+      background: rgba(255,209,102,.16);
+      border:1px solid rgba(255,209,102,.24);
+      color:#ffe7a3;
+      font-size:.86rem; font-weight:700;
+    }
+    .journal { color:#9fd0ff; font-weight:700; }
+    .pub-title { font-weight:700; font-size:1rem; }
+    .course-grid {
+      display:grid; grid-template-columns: repeat(5,1fr); gap:12px;
+    }
+    .course {
+      padding:16px; border-radius:18px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      min-height: 110px;
+    }
+    .contact-list {
+      list-style:none; padding:0; margin:0; display:grid; gap:12px;
+    }
+    .contact-list li {
+      padding:14px 16px;
+      border-radius:16px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    footer {
+      padding: 32px 0 52px;
+      color: #96a6ba;
+      font-size: .95rem;
+    }
+    @media (max-width: 1080px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .grid-3, .course-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 760px) {
+      .nav-inner, .section-head { flex-direction:column; align-items:flex-start; }
+      .grid-2, .grid-3, .course-grid, .stat-grid { grid-template-columns: 1fr; }
+      .hero-main, .panel, .photo-card { padding: 22px; }
+      .timeline-item { grid-template-columns: 1fr; gap:6px; }
+      .hero { padding-top: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">
+        <div class="logo">K</div>
+        <div>
+          <h1>유효성분전달연구실</h1>
+          <small>Kangwon National University</small>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#about">소개</a>
+        <a href="#highlights">강점</a>
+        <a href="#publications">대표논문</a>
+        <a href="#teaching">교육</a>
+        <a href="#contact">연락처</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="card hero-main">
+        <div class="eyebrow">🔬 Advanced Drug Delivery & Biomaterials Lab</div>
+        <h1>약물전달, 바이오소재, 기능성 제형을 연결하는<br>김진철 교수 연구실</h1>
+        <p class="lead">
+          강원대학교 유효성분전달연구실은 Drug Delivery System, Pharmaceutical Science, Colloid & Interface Science,
+          Polymer Science를 중심으로 기초연구와 산업화 연구를 함께 수행합니다. 약물전달체 설계, 기능성 화장품 제형,
+          바이오재료, 자극응답형 전달시스템, AI 융합 DDS 연구를 통해 실제 응용 가능한 고부가가치 기술을 개발합니다.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#publications">대표논문 보기</a>
+          <a class="btn secondary" href="#contact">대학원·공동연구 문의</a>
+          <a class="btn secondary" href="https://www.researchgate.net/profile/Jin-Chul-Kim-2" target="_blank" rel="noopener">ResearchGate</a>
+        </div>
+        <div class="stat-grid">
+          <div class="stat"><strong>~300</strong>SCI급 논문 및 국제 연구성과</div>
+          <div class="stat"><strong>20+ Years</strong>학계·산업체 융합 연구 경력</div>
+          <div class="stat"><strong>DDS + Biomaterials</strong>기초·응용·산업화 연계</div>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="card photo-card">
+          <div class="portrait-wrap">
+            <img class="portrait" src="data:image/jpeg;base64,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" alt="김진철 교수 사진" />
+          </div>
+          <div class="photo-meta">
+            <h3 style="margin-bottom:6px;">김진철 교수</h3>
+            <p class="muted">Professor, College of Biomedical Science and Institute of Bioscience and Biotechnology, Kangwon National University</p>
+          </div>
+        </div>
+        <div class="mini">
+          <h3>Research Keywords</h3>
+          <div class="chips">
+            <span class="chip">Drug Delivery</span>
+            <span class="chip">Liposomes</span>
+            <span class="chip">Cubosomes</span>
+            <span class="chip">Polymer Science</span>
+            <span class="chip">Biomaterials</span>
+            <span class="chip">Cosmeceuticals</span>
+            <span class="chip">Stimuli-responsive DDS</span>
+            <span class="chip">AI-enabled Formulation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Professor Biography</h2>
+            <p>CV 기반 주요 이력과 연구 방향을 반영해 해외 연구실 스타일로 정리한 소개 섹션입니다.</p>
+          </div>
+        </div>
+        <div class="grid-2">
+          <article class="card panel">
+            <h3>Academic & Industry Profile</h3>
+            <p class="muted">
+              Prof. Jin-Chul Kim has built a long-standing academic and industrial career spanning pharmaceutical science,
+              drug delivery systems, colloid and interface science, and polymer science. He has served as professor at
+              Kangwon National University since 2003 after industrial research experience at LG Household & Health Care
+              and postdoctoral research at Purdue University.
+            </p>
+            <p class="muted">
+              His laboratory develops advanced carriers designed to improve therapeutic efficacy while minimizing side effects.
+              Major interests include liposomes, cubic phases, polymeric carriers, nanostructured biomaterials,
+              functional cosmetic formulations, and stimuli-responsive delivery systems triggered by light, temperature,
+              pH, electric current, magnetic fields, and specific biochemical signals.
+            </p>
+            <p class="muted">
+              The lab aims to connect strong fundamental science with translational value in pharmaceuticals, cosmeceuticals,
+              and biomedical materials.
+            </p>
+          </article>
+
+          <article class="card panel">
+            <h3>Education & Career Timeline</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="year">2003-present</div>
+                <div class="muted"><strong>Professor</strong><br>College of Biomedical Science and Institute of Bioscience and Biotechnology, Kangwon National University</div>
+              </div>
+              <div class="timeline-item">
+                <div class="year">1998-2003</div>
+                <div class="muted"><strong>Senior Researcher</strong><br>LG Household & Health Care, Republic of Korea</div>
+              </div>
+              <div class="timeline-item">
+                <div class="year">1997-1998</div>
+                <div class="muted"><strong>Postdoctoral Researcher</strong><br>Department of Industrial and Physical Pharmacy, Purdue University, USA</div>
+              </div>
+              <div class="timeline-item">
+                <div class="year">1993-1997</div>
+                <div class="muted"><strong>Ph.D.</strong><br>Department of Chemical Engineering, KAIST</div>
+              </div>
+              <div class="timeline-item">
+                <div class="year">1991-1993</div>
+                <div class="muted"><strong>M.S.</strong><br>Department of Chemical Engineering, KAIST</div>
+              </div>
+              <div class="timeline-item">
+                <div class="year">B.S.</div>
+                <div class="muted"><strong>Yonsei University</strong><br>Department of Chemical Engineering</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="highlights">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>연구실 강점</h2>
+            <p>연구실의 핵심 경쟁력을 한눈에 볼 수 있도록 요약했습니다.</p>
+          </div>
+        </div>
+        <div class="grid-3">
+          <article class="card panel">
+            <h3>Major Research Areas</h3>
+            <ul class="list">
+              <li>Drug Delivery System</li>
+              <li>Pharmaceutical Science</li>
+              <li>Colloid & Interface Science</li>
+              <li>Polymer Science</li>
+            </ul>
+          </article>
+          <article class="card panel">
+            <h3>Awards & Recognition</h3>
+            <ul class="list">
+              <li>Outstanding Teacher Award (2014)</li>
+              <li>Teaching Award (2008)</li>
+              <li>Outstanding Researcher Award (2001)</li>
+              <li>Patent Awards from LG Household & Health Care and LG Chem</li>
+            </ul>
+          </article>
+          <article class="card panel">
+            <h3>Research Vision</h3>
+            <p class="muted">약물전달체 설계, 기능성 제형, 바이오재료, 데이터 기반 예측을 연결하여 글로벌 수준의 DDS 연구실을 구축하고 산업화와 인재양성을 함께 추진합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>대표논문</h2>
+            <p></p>
+          </div>
+        </div>
+        <div class="grid-3">
+          <article class="card pub-card">
+            <div class="pub-top">
+              <div>
+                <div class="journal">Chemical Engineering Journal · 2021</div>
+                <div class="pub-title">Self-assembly prepared using an ion pair of poly(ethylene imine) and (phenylthio) acetic acid as a drug carrier for oxidation, temperature, and NIR-responsive release</div>
+              </div>
+              <div class="badge">IF 13.2</div>
+            </div>
+            <div class="muted">A high-impact example of stimuli-responsive carrier design integrating oxidation, temperature, and NIR-triggered release.</div>
+          </article>
+
+          <article class="card pub-card">
+            <div class="pub-top">
+              <div>
+                <div class="journal">Journal of Nanobiotechnology · 2021</div>
+                <div class="pub-title">Central composite design for the development of carvedilol-loaded transdermal ethosomal hydrogel for extended and enhanced anti-hypertensive effect</div>
+              </div>
+              <div class="badge">IF 12.6</div>
+            </div>
+            <div class="muted">An optimized transdermal delivery study showing formulation design capability and translation-oriented nanobiotechnology research.</div>
+          </article>
+
+          <article class="card pub-card">
+            <div class="pub-top">
+              <div>
+                <div class="journal">Carbohydrate Polymers · 2021</div>
+                <div class="pub-title">Rapid in-situ growth of gold nanoparticles on cationic cellulose nanofibrils: Recyclable nanozyme for the colorimetric glucose detection</div>
+              </div>
+              <div class="badge">IF 12.5</div>
+            </div>
+            <div class="muted">Representative biomaterials work combining nanocellulose, gold nanoparticles, and sensing applications.</div>
+          </article>
+
+          <article class="card pub-card">
+            <div class="pub-top">
+              <div>
+                <div class="journal">Carbohydrate Polymers · 2020</div>
+                <div class="pub-title">Doxorubicin-carboxymethyl xanthan gum capped gold nanoparticles: microwave synthesis, characterization, and anti-cancer activity</div>
+              </div>
+              <div class="badge">IF 12.5</div>
+            </div>
+            <div class="muted">A notable cancer nanomedicine paper highlighting polymer-based gold nanoparticle systems and anticancer activity.</div>
+          </article>
+
+          <article class="card pub-card">
+            <div class="pub-top">
+              <div>
+                <div class="pub-title">
+              <li><strong>Email</strong><br><a href="mailto:jinkim@kangwon.ac.kr">jinkim@kangwon.ac.kr</a></li>
+              <li><strong>Phone</strong><br>+82-33-250-6561</li>
+              <li><strong>Affiliation</strong><br>College of Biomedical Science and Institute of Bioscience and Biotechnology, Kangwon National University</li>
+            </ul>
+          </article>
+          <article class="card panel">
+            <h2>Joining the Lab</h2>
+            <p class="muted">
+              대학원 진학, 공동연구, 산학협력, 연구과제 기획 관련 문의를 환영합니다.
+              관심 연구주제와 간단한 소개를 포함해 이메일로 연락해 주세요.
+            </p>
+            <div class="actions" style="margin-bottom:0; margin-top:18px;">
+              <a class="btn primary" href="mailto:jinkim@kangwon.ac.kr">이메일 보내기</a>
+              <a class="btn secondary" href="#home">맨 위로</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Advanced Drug Delivery & Biomaterials Lab, Kangwon National University. Built as a single-file homepage for easy upload to GitHub Pages or Cafe24.
+    </div>
+  </footer>
+</body>
+</html>
